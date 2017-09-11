@@ -8,6 +8,20 @@
                     </svg>
                 </li>
             </ol>
+            <ol class="">
+                <li>
+                    <svg @click="save" class="icon save">
+                        <use xlink:href="#icon-tubiaozhizuomoban"></use>
+                    </svg>
+                </li>
+                <li>
+                    <router-link to="/preview">
+                        <svg class="icon">
+                            <use xlink:href="#icon-chakan"></use>
+                        </svg>
+                    </router-link>
+                </li>
+            </ol>
         </nav>
     </div>
 </template>
@@ -29,6 +43,15 @@ export default {
         resumeConfig() {
             return this.$store.state.resumeConfig
         }
+    },
+    methods: {
+        save() {
+            if (this.$store.state.user.id === '') {
+                alert('请先登录，再保存')
+            } else {
+                this.$store.dispatch('saveResume')
+            }
+        }
     }
 }
 </script>
@@ -42,16 +65,20 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: center;
-        color:#fff;
+        color: #fff;
         li {
             padding: 10px 16px;
-            margin-top:20px;
+            margin-top: 20px;
             .icon {
                 font-size: 30px;
             }
-            &.active{
-                background:#fff;
-                color:#000;
+            .save {
+                color: #0089ff;
+                cursor: pointer;
+            }
+            &.active {
+                background: #fff;
+                color: #000;
             }
         }
     }

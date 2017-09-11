@@ -11,7 +11,7 @@
       </div>
       <div class="actions">
         <input class="Button" type="submit" value="Go">
-        <span class="errorMessage">{{errorMessage}}</span>
+        <p class="errorMessage">{{errorMessage}}</p>
       </div>
     </form>
   </div>
@@ -118,6 +118,11 @@ export default {
     100% {
       opacity: 0.3;
     }
+  }
+  .errorMessage{
+    margin-top:32px;
+    color:red;
+    font-size: 13px;
   }
 }
 </style>

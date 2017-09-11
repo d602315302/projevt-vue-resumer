@@ -1,13 +1,10 @@
 <template>
     <div id="resumePreview">
-       
+
         <div class="content">
-            <svg @click="save" class="iconSave">
-                <use xlink:href="#icon-tubiaozhizuomoban"></use>
-            </svg>
-            <router-link to="/preview">
-                <svg class="iconPreview ">
-                    <use xlink:href="#icon-chakan"></use>
+            <router-link to="/">
+                <svg class="exitPreview">
+                    <use xlink:href="#icon-return"></use>
                 </svg>
             </router-link>
             <div class="previewHeader">
@@ -55,7 +52,7 @@
 
                 <section data-name="projects" v-if="resume.projects && resume.projects.length > 0">
                     <ul>
-                            <h3>项目经历</h3>                        
+                        <h3>项目经历</h3>
                         <li v-for="item in resume.projects">
                             <p v-show="item.name">项目名称：{{item.name}}</p>
                             <p v-show="item.link">项目链接：{{item.link}} </p>
@@ -68,7 +65,7 @@
                 <section data-name="awards" v-if="resume.awards && resume.awards.length > 0">
 
                     <ul>
-                            <h3>获奖情况</h3>                        
+                        <h3>获奖情况</h3>
                         <li v-for="item in resume.awards">
                             <p v-show="item.name">奖项：{{item.name}}</p>
                             <p v-show="item.details">详细情况： {{item.details}} </p>
@@ -79,7 +76,7 @@
 
                 <section data-name="contacts" v-if="resume.contacts && resume.contacts.length > 0">
                     <ul>
-                            <h3>联系方式</h3>                        
+                        <h3>联系方式</h3>
                         <li v-for="item in resume.contacts">
                             <p v-show="item.phone">手机：{{item.phone}}</p>
                             <p v-show="item.QQ">QQ： {{item.QQ}} </p>
@@ -105,7 +102,7 @@ export default {
     methods: {
         save() {
             this.$store.dispatch('saveResume')
-            if(this.$store.state.user.id===''){
+            if (this.$store.state.user.id === '') {
                 alert('请先登录，再保存')
             }
         }
@@ -116,6 +113,7 @@ export default {
 <style lang="scss">
 #resumePreview {
     background: #444;
+    height: 100%;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
     padding: 1em;
     color: #333;
@@ -154,7 +152,8 @@ export default {
         >.previewContent {
             padding: 10px 64px;
             display: flex;
-            max-height: 476px;
+            max-height: 80%;
+
             flex-direction: column; // align-items: center;
             overflow: auto;
             section {
@@ -162,9 +161,9 @@ export default {
                 ul {
                     list-style: none;
                 }
-                li{
-                    >hr{
-                        margin-top:10px;
+                li {
+                    >hr {
+                        margin-top: 10px;
                     }
                 }
                 h3 {
@@ -179,58 +178,16 @@ export default {
                 }
             }
         }
-    } // section[data-name="profile"] {
-    //     >h1 {
-    //         margin: .1em 0;
-    //         font-size: 4em;
-    //     }
-    // }
-    // section[data-name="workHistory"],
-    // section[data-name="projects"],
-    // section[data-name="awards"] {
-    //     li+li {
-    //         margin-top: 1em;
-    //     }
-    //     li {
-    //         h3 {
-    //             border-bottom: 1px solid #999;
-    //             padding-bottom: .3em;
-    //             margin-bottom: .3em;
-    //         }
-    //     }
-    // }
-    // section[data-name="education"] {
-    //     li {
-    //         line-height: 1.5;
-    //     }
-    // }
-    // section[data-name="contacts"] {
-    //     td:first-child {
-    //         padding-right: 1em;
-    //     }
-    .iconPreview {
-        position: absolute;
-        top: 2px;
-        right: 20px;
-        width: 2em;
-        height: 2em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        color: #43634D;
-        overflow: hidden;
-        z-index: 1;
-    }
-    .iconSave {
-        position: absolute;
-        top: 2px;
-        right: 60px;
-        width: 2em;
-        height: 2em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        color: #43634D;
-        overflow: hidden;
-        z-index: 1;
+        .exitPreview {
+            float: right;
+            margin:16px 16px 0 0;
+            width: 2em;
+            height: 2em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            color:#69bcc2;
+            overflow: hidden;
+        }
     }
 }
 </style>

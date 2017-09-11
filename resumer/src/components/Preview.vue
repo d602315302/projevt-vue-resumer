@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="previewContainer">
     <ResumePreview />
   </div>
 </template>
@@ -14,7 +14,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    #resumepreview{
-        width:80%;
-    }
+.previewContainer{
+  width: 80%;
+  height:100vh;
+  margin:0 auto;
+  .iconPreview .previewNone{
+    opacity: 0;
+  }
+}
 </style>
