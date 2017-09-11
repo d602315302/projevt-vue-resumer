@@ -1,0 +1,43 @@
+svg.icon{
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+    vertical-align: -0.1em;
+    font-size:16px;
+  }
+  .button{ 
+    width:72px;
+    height:32px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px; // 设计稿上是 20px，看起来太大，就改成 18px 了
+    background:#ddd;
+    color: #222;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border-radius: 6px;
+    &:hover{
+      box-shadow: 1px 1px 1px hsla(0, 0, 0, 0.50);
+    }
+    &.primary{
+      background:#f3b83d;
+      color: white;
+    }
+    &.signIn{
+      background:#fff;
+    }
+    &.signIn:hover{
+      border:1px solid #f3b83d;
+    }
+    &.small {
+      height: 24px;
+      font-size: inherit;
+      width: auto;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  
+  }
